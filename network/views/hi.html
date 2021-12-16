@@ -4,8 +4,23 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="/scripts/hi.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:5050');
+        socket.on('connection', (data) => {
+            
+        });
+        function btn_emit() {
+            socket.emit('hi_btn_emit', 'hi');
+        }
+    </script>
+    <script>
+        
+    </script>
 </head>
 <body>
     hi
+    <input type="button" id="emit_test" onclick="btn_emit()" />
 </body>
 </html>

@@ -36,6 +36,9 @@
     <Content Include="router\main.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="scripts\hi.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="views\hi.html">
       <SubType>Code</SubType>
     </Content>
@@ -44,6 +47,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="scripts\" />
     <Folder Include="views\" />
     <Folder Include="router\" />
   </ItemGroup>

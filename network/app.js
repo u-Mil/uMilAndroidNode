@@ -1,17 +1,20 @@
 'use strict';
 
-var app = require('express')();
+var express = require('express');
+var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 5050;
 
 var router = require('./router/main')(app);
+
+app.use('/scripts', express.static(__dirname + "/scripts"));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
 io.on('connection', (socket) => {
-    console.log('connect');
+    console.log('on-connection');
     //모든 클라이언트에 전송
     //io.emit('event_name', msg);
     //해당 클라이언트에 전송
@@ -27,6 +30,10 @@ io.on('connection', (socket) => {
     });
 
     socket.on('connect', (recv) => {
+        console.log(recv);
+    });
+
+    socket.on('hi_btn_emit', (recv) => {
         console.log(recv);
     });
 });

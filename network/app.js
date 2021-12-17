@@ -7,8 +7,9 @@ var io = require('socket.io')(server);
 var port = process.env.PORT || 5050;
 
 var router = require('./router/main')(app);
-
-app.use('/scripts', express.static(__dirname + "/scripts"));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/js', express.static(__dirname + '/js'));
+app.use('/assets', express.static(__dirname + '/assets'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);

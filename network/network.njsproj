@@ -47,6 +47,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
     <Folder Include="scripts\" />
     <Folder Include="views\" />
     <Folder Include="router\" />

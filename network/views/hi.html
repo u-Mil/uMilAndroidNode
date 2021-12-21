@@ -9,13 +9,24 @@
     <script>
         var socket = io();
         socket.connect("http://localhost:5050/")
-        socket.on('connection', (data) => {
+        socket.on('connect', (data) => {
             socket.emit('default', 'connect');
+        });
+        function btn_emit() {
+            var text1 = document.getElementById('text1').value;
+            socket.emit('hi_btn_emit', text1);
+        };
+        socket.on('hi_btn_on', (recv) => {
+            var textarea = document.getElementById('textarea1').value;
+            textarea += recv + '\n';
+            document.getElementById('textarea1').value = textarea;
         });
     </script>
 </head>
 <body>
     hi
     <input type="button" id="emit_test" onclick="btn_emit()" />
+    <input type="text" id="text1" />
+    <textarea cols="50" rows="50" id="textarea1"></textarea>
 </body>
 </html>

@@ -35,8 +35,10 @@ io.on('connection', (socket) => {
     });
 
     socket.on('hi_btn_emit', (recv) => {
-        console.log(recv);
+        socket.emit('hi_btn_on', recv);
     });
+
+
 });
 server.listen(port, () => {
     console.log("Express listen [" + port + "]");
